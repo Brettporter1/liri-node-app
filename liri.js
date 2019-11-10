@@ -11,17 +11,21 @@ let txtArr = []
 
 // Switch function for user input
 const searchSwitch = (switchTerm, funcTerm) => {
+    
     switch (switchTerm) {
         case 'concert-this':
+            logEntry(switchTerm,funcTerm);
             concertThis(funcTerm);
             break;
         case 'spotify-this-song':
+            logEntry(switchTerm,funcTerm);
             spotThis(funcTerm);
             break;
         case 'movie-this':
+            logEntry(switchTerm,funcTerm);
             checkMovie(funcTerm);
             break;
-        case 'do-a-thing':
+        case 'do-what-it-says':
             doThing();
             break;
         default:
@@ -52,7 +56,7 @@ const spotThis = (songSearch) => {
         songSearch = '"The Sign"';
     }
     let spotify = new Spotify(keys.spotify)
-    spotify.search({ type: 'track', query: songSearch }, function (err, data) {
+    spotify.search({ type: 'track', query: songSearch, limit:10 }, function (err, data) {
         if (err) {
             return console.log('Error occurred: ' + err);
         } else {
@@ -80,8 +84,6 @@ const movieThis = (movie) => {
     let newMovie = response.data
     // tomatoes=true within the api url doesn't actually give the Rotten Tomatoes rating, had to pull it from the Ratings key
     console.log(`
-____________________________
-
 Title: ${newMovie.Title}
 Year: ${newMovie.Year}
 IMDB Rating: ${newMovie.imdbRating}
@@ -119,5 +121,15 @@ const doThing = () => {
         searchSwitch(newType,newSearch);
     })
 }
+// =============================
 
+// Log function
+const logEntry = (term1, term2) => {
+    let newEntry = `${term1}, ${term2}\n`
+    fs.appendFile('log.txt', newEntry, function(err){
+        if (err){
+            throw 'Error'
+        }
+    })
+}
 searchSwitch(searchType,searchTerm)
