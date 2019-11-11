@@ -42,7 +42,7 @@ const concertThis = (band) =>{
         let concerts = response.data
         for(let i = 0;i < concerts.length;i++)
         console.log(`Venue: ${concerts[i].venue.name}
-Location: ${concerts[i].city}, ${concerts[i].region}
+Location: ${concerts[i].venue.city}, ${concerts[i].venue.region}
 Date: ${moment(concerts[i].datetime).format('MM/DD/YYYY')}
 _________________________________
         `);
@@ -56,7 +56,7 @@ const spotThis = (songSearch) => {
         songSearch = '"The Sign"';
     }
     let spotify = new Spotify(keys.spotify)
-    spotify.search({ type: 'track', query: songSearch, limit:10 }, function (err, data) {
+    spotify.search({ type: 'track', query: songSearch, limit:3 }, function (err, data) {
         if (err) {
             return console.log('Error occurred: ' + err);
         } else {

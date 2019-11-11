@@ -6,7 +6,7 @@ To see a demontration of this application [Click Here!](https://)
 
 ### Spotify This Song 
 
-By typing 'spotify-this-song' and 'the song name' into the command line. LIRI will give you the top 10 returns for that entry. Some of the song information that is included are:
+By typing 'spotify-this-song' and 'the song name' into the command line. LIRI will access the Spotify API and give you the top 3 returns for that entry. Some of the song information that is included are:
 
 * Artist Name
 * Song Name
@@ -15,7 +15,7 @@ By typing 'spotify-this-song' and 'the song name' into the command line. LIRI wi
 
 ### Concert This
 
-By typing 'concert-this' and 'the band name' into the command line, LIRI will provide you with a list of upcoming tour dates. Other information given includes:
+By typing 'concert-this' and 'the band name' into the command line, LIRI will access the Bands In Town API and provide you with a list of upcoming tour dates. Other information given includes:
 
 * Venue Name
 * Location (City and State)
@@ -23,7 +23,7 @@ By typing 'concert-this' and 'the band name' into the command line, LIRI will pr
 
 ### Movie This
 
-By typing 'movie-this' and 'the movie name' into the command line, LIRI will provide the following information about that movie:
+By typing 'movie-this' and 'the movie name' into the command line, LIRI will access the OMDB API and provide the following information about that movie:
 
 * Movie Title
 * Release Year
